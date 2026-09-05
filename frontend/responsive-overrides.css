@@ -1,0 +1,57 @@
+/* Keep sidebar content in flow so navigation and guidance never overlap. */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.sidebar nav {
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding-right: 3px;
+}
+
+.sidebar-note {
+  position: static;
+  flex: 0 0 auto;
+  margin: 18px 10px 0;
+  padding: 15px 3px 0;
+}
+
+@media (max-width: 900px) {
+  .sidebar-note {
+    display: none;
+  }
+
+  .sidebar nav {
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    scrollbar-width: thin;
+  }
+}
+
+@media (max-width: 650px) {
+  .sidebar {
+    overflow: visible;
+  }
+
+  .sidebar nav {
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    gap: 3px;
+    margin-top: 16px;
+    padding-bottom: 4px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: thin;
+  }
+
+  .sidebar nav button {
+    width: auto;
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+}
